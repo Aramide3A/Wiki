@@ -1,0 +1,18 @@
+{% extends 'encyclopedia/layout.html' %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="title" placeholder="Title">
+        <p><label for="content">Content:</label></p>
+        <textarea name="content" id="content"  class="textarea"></textarea>
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}
